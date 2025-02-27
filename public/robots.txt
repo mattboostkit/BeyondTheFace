@@ -1,0 +1,11 @@
+# Beyond The Face - Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://beyondtheface.co.uk/sitemap.xml
+
+# Disallow potential future admin areas
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /login/
