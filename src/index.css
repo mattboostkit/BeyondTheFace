@@ -2,19 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif+Display:wght@400;500;600;700&display=swap');
+html {
+  scroll-behavior: smooth;
+}
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    @apply text-gray-800 font-sans;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-normal;
-  }
+body {
+  scroll-padding-top: 5rem; /* Adjust based on fixed header height */
 }

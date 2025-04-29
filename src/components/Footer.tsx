@@ -1,152 +1,86 @@
 import React from 'react';
-import { Facebook, Instagram, Twitter, Mail, MapPin, Phone, Clock } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Phone, Mail, MapPin, Clock, Instagram } from 'lucide-react';
 
-const Footer = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const isHomePage = location.pathname === '/';
-  
-  // Function to handle smooth scrolling to sections
-  const scrollToSection = (e, sectionId) => {
-    if (isHomePage) {
-      e.preventDefault();
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // If not on home page, navigate to home with state to trigger scroll after navigation
-      navigate('/', { state: { scrollToSection: sectionId } });
-    }
-  };
-
+const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gradient-to-b from-gray-800 to-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* About */}
-          <div className="md:col-span-1">
-            <div className="mb-4 h-10">
-              <img src="https://ik.imagekit.io/boostkit/Beyond%20The%20Face/logo_white.png?updatedAt=1740599856410" alt="Beyond The Face logo in white" className="h-full" />
-            </div>
-            <p className="text-gray-400 mb-4">
-              Premium non-surgical aesthetic treatments delivered by qualified professionals in a welcoming, clinical environment.
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="space-y-4">
+            <h3 className="text-xl font-serif font-bold bg-gradient-to-r from-primary-300 to-primary-400 bg-clip-text text-transparent">Beyond The Face</h3>
+            <p className="text-gray-300">
+              Premium aesthetic treatments tailored to enhance your natural beauty.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white" aria-label="Follow us on Facebook">
-                <Facebook className="h-5 w-5" aria-hidden="true" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white" aria-label="Follow us on Instagram">
-                <Instagram className="h-5 w-5" aria-hidden="true" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white" aria-label="Follow us on Twitter">
-                <Twitter className="h-5 w-5" aria-hidden="true" />
+              <a href="https://www.instagram.com/beyondthefacertw/" className="text-gray-300 hover:text-primary-300 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                <Instagram size={20} />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="md:col-span-1">
-            <h3 className="text-lg font-normal mb-4">Quick Links</h3>
+          <div className="space-y-4">
+            <h4 className="text-lg font-medium text-primary-300">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link 
-                  to="/#treatments" 
-                  onClick={(e) => scrollToSection(e, 'treatments')}
-                  className="text-gray-400 hover:text-white"
-                >
-                  Treatments
-                </Link>
+                <Link to="/" className="text-gray-300 hover:text-primary-300 transition-colors duration-200">Home</Link>
               </li>
               <li>
-                <Link 
-                  to="/#results" 
-                  onClick={(e) => scrollToSection(e, 'results')}
-                  className="text-gray-400 hover:text-white"
-                >
-                  Results
-                </Link>
+                <Link to="/treatments" className="text-gray-300 hover:text-primary-300 transition-colors duration-200">Treatments</Link>
               </li>
               <li>
-                <Link 
-                  to="/#appointments" 
-                  onClick={(e) => scrollToSection(e, 'appointments')}
-                  className="text-gray-400 hover:text-white"
-                >
-                  Appointments
-                </Link>
+                <Link to="/exosomes" className="text-gray-300 hover:text-primary-300 transition-colors duration-200">Exosomes</Link>
               </li>
               <li>
-                <Link 
-                  to="/#about" 
-                  onClick={(e) => scrollToSection(e, 'about')}
-                  className="text-gray-400 hover:text-white"
-                >
-                  About Us
-                </Link>
+                <Link to="/facelifts" className="text-gray-300 hover:text-primary-300 transition-colors duration-200">Facelifts</Link>
               </li>
               <li>
-                <Link to="/facelifts" className="text-gray-400 hover:text-white">
-                  Facelifts
-                </Link>
+                <Link to="/contact" className="text-gray-300 hover:text-primary-300 transition-colors duration-200">Contact</Link>
               </li>
-              <li>
-                <Link 
-                  to="/#contact" 
-                  onClick={(e) => scrollToSection(e, 'contact')}
-                  className="text-gray-400 hover:text-white"
-                >
-                  Contact
-                </Link>
-              </li>
+
             </ul>
           </div>
 
-          {/* Contact */}
-          <div className="md:col-span-1">
-            <h3 className="text-lg font-normal mb-4">Contact</h3>
+          <div className="space-y-4">
+            <h4 className="text-lg font-medium text-primary-300">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-start">
-                <MapPin className="h-5 w-5 text-sage-500 mr-2 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="text-gray-400">19 Vale Road, Tunbridge Wells, TN1 1BS</span>
+                <MapPin size={18} className="mr-2 mt-1 text-primary-300 flex-shrink-0" />
+                <span className="text-gray-300">19 Vale Road, Tunbridge Wells, Kent TN1 1BS</span>
               </li>
-              <li className="flex items-start">
-                <Phone className="h-5 w-5 text-sage-500 mr-2 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="text-gray-400">+44 7717 633418</span>
+              <li className="flex items-center">
+                <Phone size={18} className="mr-2 text-primary-300 flex-shrink-0" />
+                <span className="text-gray-300">+44 7717 633418</span>
               </li>
-              <li className="flex items-start">
-                <Mail className="h-5 w-5 text-sage-500 mr-2 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="text-gray-400">maryna@beyondtheface.co.uk</span>
+              <li className="flex items-center">
+                <Mail size={18} className="mr-2 text-primary-300 flex-shrink-0" />
+                <span className="text-gray-300">maryna@beyondtheface.co.uk</span>
               </li>
             </ul>
           </div>
 
-          {/* Hours */}
-          <div className="md:col-span-1">
-            <h3 className="text-lg font-normal mb-4">Opening Hours</h3>
+          <div className="space-y-4">
+            <h4 className="text-lg font-medium text-primary-300">Opening Hours</h4>
             <ul className="space-y-2">
-              <li className="flex items-start">
-                <Clock className="h-5 w-5 text-sage-500 mr-2 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <div className="text-gray-400">
-                  <p className="mb-1">Monday - Friday: 9am - 7pm</p>
-                  <p className="mb-1">Saturday: 10am - 5pm</p>
-                  <p>Sunday: Closed</p>
+              <li className="flex items-center">
+                <Clock size={18} className="mr-2 text-primary-300 flex-shrink-0" />
+                <div>
+                  <p className="text-gray-300">Monday - Friday: 9am - 7pm</p>
+                  <p className="text-gray-300">Saturday: 10am - 5pm</p>
+                  <p className="text-gray-300">Sunday: Closed</p>
                 </div>
               </li>
             </ul>
+
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Beyond The Face. All rights reserved.
+        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400 text-sm">
+          <p>© {new Date().getFullYear()} Beyond The Face. All rights reserved.</p>
+          <p className="mt-2">
+            <Link to="/privacy-policy" className="hover:text-primary-300 transition-colors duration-200">Privacy Policy</Link> |{' '}
+            <Link to="/terms" className="hover:text-primary-300 transition-colors duration-200">Terms & Conditions</Link>
           </p>
-          <div className="mt-4 md:mt-0 flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm">Terms of Service</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
-          </div>
         </div>
       </div>
     </footer>

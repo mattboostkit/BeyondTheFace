@@ -1,0 +1,50 @@
+/* Media queries for the GHL form */
+#_builder-form {
+  margin: 0 auto; /* Center the form */
+}
+
+@media (min-width: 768px) {
+  #_builder-form {
+    max-width: 768px;
+  }
+
+  /* Force the form to display in 2 columns on desktop */
+  #_builder-form .form-builder--item-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* Make message field span both columns */
+  #_builder-form .form-builder--item-container > div:nth-last-child(2) {
+    grid-column: span 2;
+  }
+
+  /* Make submit button span both columns */
+  #_builder-form .form-builder--item-container > div:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 767px) {
+  #_builder-form {
+    max-width: 100%;
+  }
+
+  /* Stack form fields on mobile */
+  #_builder-form .form-builder--item-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Additional styling for the iframe */
+#inline-DjEGzs34som8LmGvK0oa {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Add custom CSS to target the GHL form inside the iframe */
+iframe#inline-DjEGzs34som8LmGvK0oa {
+  min-height: 600px; /* Increase height to accommodate the form */
+}

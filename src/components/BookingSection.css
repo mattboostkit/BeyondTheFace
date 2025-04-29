@@ -1,0 +1,79 @@
+/* Booking section styles */
+.booking-container {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  margin-bottom: 1rem;
+}
+
+.booking-iframe-container {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  /* Increased height to show full calendar without scrolling */
+  min-height: 700px;
+  height: auto;
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 768px) {
+  .booking-iframe-container {
+    min-height: 750px; /* Taller on tablets to avoid scrolling */
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-iframe-container {
+    min-height: 800px; /* Even taller on small mobile to avoid scrolling */
+  }
+}
+
+/* Fix for the calendar to ensure it doesn't overflow */
+.booking-iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 700px;
+  border: none;
+  overflow: visible;
+}
+
+/* Ensure the calendar fits within the container */
+.booking-section {
+  margin-bottom: 3rem; /* Add more space before footer */
+  padding-bottom: 2rem;
+}
+
+/* Add padding to the bottom of the page to ensure no overlap with footer */
+.booking-section + footer {
+  margin-top: 2rem;
+}
+
+/* Additional styles to ensure the calendar is properly sized */
+.booking-container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ensure the iframe takes up the full height needed */
+@media (min-width: 1024px) {
+  .booking-iframe {
+    min-height: 750px; /* Taller on desktop */
+  }
+
+  .booking-iframe-container {
+    min-height: 750px;
+  }
+}
+
+/* Ensure mobile view has enough space */
+@media (max-width: 480px) {
+  .booking-iframe {
+    min-height: 850px; /* Even taller on mobile to ensure no scrolling */
+  }
+
+  .booking-iframe-container {
+    min-height: 850px;
+  }
+}
